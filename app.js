@@ -1,5 +1,4 @@
 var value;
-var value2;
 function* main() {
     console.log('start');
     yield pause(1000);
@@ -11,12 +10,13 @@ function* main() {
 function pause(milliseconds) {
     setTimeout(() => {
         console.log('paused for ' + milliseconds);
-        value2 = main().next();
+        value.next();
     }, milliseconds);
 }
 
 function app(){
-    main().next();
+    value = main();
+    value.next();
 }
 
 function app2() {
